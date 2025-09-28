@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -24,7 +24,7 @@ export const Navbar = () => {
 
   useEffect(() => setMounted(true), []);
 
-  const isDark = (resolvedTheme ?? theme) === "dark";
+  const isDark = theme === "dark";
   const handleLogin = () => router.push("/login");
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
@@ -63,13 +63,8 @@ export const Navbar = () => {
             size="sm"
             onClick={toggleTheme}
             className="text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
-            disabled={!mounted}
           >
-            {mounted ? (
-              isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />
-            ) : (
-              <div className="h-4 w-4" />
-            )}
+            {mounted && isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
 
           {/* Language toggle */}

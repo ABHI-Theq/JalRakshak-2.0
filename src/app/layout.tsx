@@ -4,6 +4,7 @@ import "./globals.css";
 import "@/i18n"
 import I18nProvider from "@/I18nProvider";
 import { Navbar } from "@/components/Navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,10 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > 
-                <I18nProvider>
-                  <Navbar/>
-                {children}
-                </I18nProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <I18nProvider>
+            <Navbar/>
+            {children}
+          </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
