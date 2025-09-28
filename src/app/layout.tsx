@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// @ts-ignore
 import "./globals.css";
 import "@/i18n"
 import I18nProvider from "@/I18nProvider";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SessionProvider } from "next-auth/react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > 
+      <SessionProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,10 +40,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <I18nProvider>
-            <Navbar/>
+            
             {children}
           </I18nProvider>
         </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

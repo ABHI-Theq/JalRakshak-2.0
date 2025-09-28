@@ -8,6 +8,8 @@ import { Moon, Sun, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
+import { useSession } from "next-auth/react";
+import UserButton from "./Userbutton";
 
 export const Navbar = () => {
   const { setTheme, theme } = useTheme();
@@ -15,6 +17,7 @@ export const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { t, i18n } = useTranslation();
+  const { data: session, status } = useSession();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "hi" : "en";
@@ -25,13 +28,13 @@ export const Navbar = () => {
   useEffect(() => setMounted(true), []);
 
   const isDark = theme === "dark";
-  const handleLogin = () => router.push("/login");
+  const handleLogin = () => router.push("/auth/sign-in");
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-blue-100/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/50 dark:border-white/10 dark:bg-[#0b1220]/60 shadow-emerald-200">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
+
         {/* Logo */}
         <div className="flex space-x-10">
           <div className="relative">
@@ -49,9 +52,15 @@ export const Navbar = () => {
         {/* Nav items */}
         <div className="flex items-center gap-1 sm:gap-2">
           <NavItem href="/" pathname={pathname}>{t("navHome")}</NavItem>
-          <NavItem href="/analysis" pathname={pathname}>{t("navAnalysis")}</NavItem>
-          <NavItem href="/weather" pathname={pathname}>{t("navWeather")}</NavItem>
-          <NavItem href="/structure" pathname={pathname}>{t("navStructure")}</NavItem>
+          {
+            session?.user && (
+              <>
+                <NavItem href="/analysis" pathname={pathname}>{t("navAnalysis")}</NavItem>
+                <NavItem href="/weather" pathname={pathname}>{t("navWeather")}</NavItem>
+                <NavItem href="/structure" pathname={pathname}>{t("navStructure")}</NavItem>
+              </>
+            )
+          }
           <NavItem href="/faqs" pathname={pathname}>{t("navFaqs")}</NavItem>
           <NavItem href="/about" pathname={pathname}>{t("navAbout")}</NavItem>
 
@@ -77,8 +86,11 @@ export const Navbar = () => {
             {i18n.language === "en" ? t("toggleToHindi") : t("toggleToEnglish")}
           </Button>
 
-          {/* Login Button */}
-          <Button
+          {
+            session?.user?(
+              <UserButton session={session}/>
+            ):(
+                        <Button
             variant="ghost"
             size="sm"
             onClick={handleLogin}
@@ -87,6 +99,8 @@ export const Navbar = () => {
             <LogIn className="h-4 w-4 mr-1" />
             Login
           </Button>
+            )
+          }          
         </div>
       </nav>
     </header>
@@ -110,7 +124,7 @@ const NavItem = ({
       className={cn(
         "rounded-md px-3 py-2 text-sm font-medium text-blue-800/80 transition hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-200/80 dark:hover:text-blue-100 dark:hover:bg-white/5",
         isActive &&
-          "text-blue-900 bg-blue-100/70 shadow-sm dark:text-blue-100 dark:bg-white/10"
+        "text-blue-900 bg-blue-100/70 shadow-sm dark:text-blue-100 dark:bg-white/10"
       )}
     >
       {children}

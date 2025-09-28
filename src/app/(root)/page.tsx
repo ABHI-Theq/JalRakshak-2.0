@@ -135,7 +135,7 @@ export default function Home() {
                 key={i}
                 className="group relative overflow-hidden rounded-2xl border border-black bg-white/25 p-6 shadow-lg ring-1 ring-white/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:bg-white/35 dark:border-white/10 dark:bg-white/10 dark:ring-white/10"
               >
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full  blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-60 group-hover:animate-shine" />
                 <div className="relative mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-md">
                   <Icon className="h-5 w-5" />
