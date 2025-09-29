@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { useSession } from "next-auth/react";
 import UserButton from "./Userbutton";
+import Image from "next/image";
 
 export const Navbar = () => {
   const { setTheme, theme } = useTheme();
@@ -43,7 +44,7 @@ export const Navbar = () => {
               href="/"
               className="flex items-center gap-2 text-2xl font-bold tracking-tight text-[#123458]  dark:text-blue-300"
             >
-              <img src="/logo.svg" alt="JalRakshak" className="h-7 w-7" />
+              <Image src={"/logo.svg"} alt="JalRakshak" className="h-7 w-7" />
               {t("appName")}
             </Link>
           </div>
