@@ -83,5 +83,10 @@
   "signingIn": "Signing in...",
   "signIn": "Sign In",
   "demoCredentials": "Demo credentials:",
-  "allRightsReserved": "All rights reserved."
+  "allRightsReserved": "All rights reserved.",
+  "myaccount":"My Account",
+  "profile":"Profile",
+  "settings":"settings",
+  "logout":"Log out",
+  "help":"Help"
 }
