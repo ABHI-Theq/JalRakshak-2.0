@@ -24,7 +24,8 @@ const eslintConfig = [
       "@typescript-eslint/no-unused-vars":"off",
       " @typescript-eslint/no-this-alias":"off",
       "@typescript-eslint/no-require-imports":"off",
-      "@typescript-eslint/no-non-null-asserted-optional-chain":"off"
+      "@typescript-eslint/no-non-null-asserted-optional-chain":"off",
+      "react/no-unescaped-entities": "off",
     }
   },
 ];

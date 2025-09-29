@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthConfig } from "next-auth";
+import NextAuth from "next-auth";
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./prisma";
@@ -6,7 +6,7 @@ import { authConfig } from "./auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
-    async signIn({ user, profile, account, credentials }) {
+    async signIn({ user, profile, account }) {
       if (!user || !account) return false;
 
       const existingUser = await prisma.user.findUnique({

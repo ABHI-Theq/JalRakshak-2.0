@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Alike } from "next/font/google";
-// @ts-ignore
 import "./globals.css";
 import "@/i18n";
 import ClientLayout from "./ClientLayout";
