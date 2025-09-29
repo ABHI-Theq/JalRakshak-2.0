@@ -5,7 +5,7 @@ import { Hammer, Droplets, Ruler, Layers, Wrench, ExternalLink } from "lucide-re
 import { useTranslation } from "react-i18next";
 
 const glass =
-  "rounded-2xl border border-black bg-white/20 shadow-xl ring-1 ring-black/20 backdrop-blur-md dark:border-white/10 dark:bg-white/10 dark:ring-white/10";
+  "rounded-2xl  bg-white shadow-xl  backdrop-blur-md dark:border-white/10 dark:bg-white/10 dark:ring-white/10";
 
 type StructureInfo = {
   name: string;
@@ -163,17 +163,17 @@ export default function Structure() {
   }
 
   return (
-    <main className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <main className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 ">
       <header className="mb-6 flex items-center justify-between text-black dark:text-blue-100">
         <div className="flex items-center gap-2">
-          <Hammer className="h-6 w-6 text-blue-600 dark:text-blue-300" />
+          <Hammer className="h-6 w-6 text-[#123458] dark:text-blue-300" />
           <span className="text-xl font-bold">{t("navStructure")}</span>
         </div>
         <div className="text-xs text-blue-900/70 dark:text-blue-100/70">{t("structureSubtitle")}</div>
       </header>
 
-      <section className={`mb-6 p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-300/40 hover:shadow-blue-500/20 text-black dark:text-blue-100`}>
-        <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-blue-900 dark:text-blue-100">
+      <section className={`mb-6 p-6 ${glass}  transition hover:-translate-y-1 hover:shadow-2xl hover:ring-gray-200/40 hover:shadow-gray-500/20 text-black dark:text-blue-100`}>
+        <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-[#0F2D46] dark:text-blue-100">
           <Layers className="h-5 w-5" /> {t("chooseStructure")}
         </h2>
         <form className="flex flex-col gap-3 sm:flex-row" onSubmit={(e) => { e.preventDefault(); handleShowInfo(); }}>
@@ -191,7 +191,7 @@ export default function Structure() {
           </datalist>
           <Button 
             type="submit"
-            className="h-10 shrink-0 rounded-lg bg-blue-600 px-4 text-white hover:bg-blue-700"
+            className="h-10 shrink-0 rounded-lg bg-[#0F2D46] px-4 text-[#fff6ee] hover:bg-[#123458  ]"
             disabled={!query.trim()}
           >
             {t("showInfo")}

@@ -61,7 +61,7 @@ const FAQs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-50 dark:from-[#0b1220] dark:to-[#0b1220] py-8">
+    <div className="min-h-screen  dark:from-[#0b1220] dark:to-[#0b1220] py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-12">

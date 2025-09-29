@@ -14,7 +14,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <SessionProvider>
       <ThemeProvider
         attribute="class"
-        defaultTheme="system"
+        defaultTheme="light"
         enableSystem
         disableTransitionOnChange
       >

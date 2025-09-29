@@ -13,3 +13,4 @@ export const signInWithGoogle=async()=>{
        revalidatePath('/')
              
 }
+export const fetchAlert=async()=>{}

@@ -15,7 +15,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 const glass =
-  "rounded-2xl border border-black bg-white/20 shadow-xl ring-1 ring-black/20 backdrop-blur-md dark:border-white/10 dark:bg-white/10 dark:ring-white/10";
+  "rounded-2xl  bg-[#ffffff] shadow-xl  backdrop-blur-md dark:border-white/10 dark:bg-white/10 dark:ring-white/10";
 
 type WeatherData = {
   current?: {
@@ -159,25 +159,25 @@ export default function Page() {
   }
 
   return (
-    <main className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <header className="mb-6 flex items-center justify-between text-black dark:text-blue-100">
+    <main className="relative mx-auto    px-4 py-10 sm:px-6 lg:px-8 bg-[#fff6ee]">
+      <header className="mb-6 flex items-center justify-between text-[#0F2D46] dark:text-blue-100">
         <div className="flex items-center gap-2">
-          <CloudRain className="h-6 w-6 text-blue-600 dark:text-blue-300" />
+          <CloudRain className="h-6 w-6 text-[#123458] dark:text-blue-300" />
           <span className="text-xl font-bold">{t("navWeather")}</span>
         </div>
-        <div className="text-xs text-blue-900/70 dark:text-blue-100/70">
+        <div className="text-xs text-[#123458]/70 dark:text-blue-100/70">
           {t("weatherSubtitle")}
         </div>
       </header>
 
       {/* Location input */}
       <section
-        className={`mb-6 p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-300/40 hover:shadow-blue-500/20 text-black dark:text-blue-100`}
+        className={`mb-6 p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-[#fff6ee]/40 hover:shadow-blue-500/20 text-[#0F2D46] dark:text-blue-100`}
       >
-        <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-blue-900 dark:text-blue-100">
+        <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-[#0F2D46] dark:text-blue-100">
           <MapPin className="h-5 w-5" /> {t("enterLocation")}
         </h2>
-        <p className="mb-4 text-sm text-blue-700 dark:text-blue-300">
+        <p className="mb-4 text-sm text-[#0F2D46] dark:text-blue-300">
           {t("weatherHelp")}
         </p>
         <form
@@ -190,12 +190,12 @@ export default function Page() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="h-10 flex-1 rounded-lg border border-black bg-white/40 px-3 text-sm text-black placeholder-black/50 outline-none ring-1 ring-black/20 backdrop-blur focus:border-black focus:ring-black/30 dark:border-white/10 dark:bg-white/10 dark:text-blue-100"
+            className="h-10 flex-1 rounded-lg border border-[#123458] bg-white/40 px-3 text-sm text-[#0F2D46] placeholder-[#0F2D46]/50 outline-none ring-1 ring-[#0F2D46]/20 backdrop-blur focus:border-[#0F2D46] focus:ring-[#0F2D46]/30 dark:border-white/10 dark:bg-white/10 dark:text-blue-100"
             placeholder={t("enterLocationPlaceholder")}
           />
           <Button
             type="submit"
-            className="h-10 shrink-0 rounded-lg bg-blue-600 px-4 text-white hover:bg-blue-700"
+            className="h-10 shrink-0 rounded-lg bg-[#123458] px-4 text-[#fff6ee] hover:bg-[#123458]/80"
             disabled={loading}
           >
             {loading ? t("loading") : t("getAllWeatherData")}
@@ -216,12 +216,12 @@ export default function Page() {
           {/* Current Weather */}
           <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div
-              className={`p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-300/40 hover:shadow-blue-500/20`}
+              className={`p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-[#0F2D46]/40 hover:shadow-blue-500/20`}
             >
-              <h3 className="mb-2 text-base font-semibold text-black dark:text-blue-100">
+              <h3 className="mb-2 text-base font-semibold text-[#0F2D46] dark:text-blue-100">
                 {t("currentConditions")}
               </h3>
-              <div className="mt-2 grid grid-cols-2 gap-4 text-black dark:text-blue-100">
+              <div className="mt-2 grid grid-cols-2 gap-4 text-[#0F2D46] dark:text-blue-100">
                 <div className="flex items-center gap-2">
                   <Thermometer className="h-4 w-4" /> {data.current?.temperature}
                   °C
@@ -243,13 +243,13 @@ export default function Page() {
             <div
               className={`p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-300/40 hover:shadow-blue-500/20`}
             >
-              <h3 className="mb-2 text-base font-semibold text-black dark:text-blue-100">
+              <h3 className="mb-2 text-base font-semibold text-[#0F2D46] dark:text-blue-100">
                 {t("location")}
               </h3>
-              <p className="text-sm text-black/80 dark:text-blue-100/80">
+              <p className="text-sm text-[#0F2D46]/80 dark:text-blue-100/80">
                 {data.locationName}
               </p>
-              <p className="mt-2 text-xs text-blue-900/70 dark:text-blue-100/70">
+              <p className="mt-2 text-xs text-[#123458]/70 dark:text-blue-100/70">
                 {coords
                   ? `${coords.lat.toFixed(4)}, ${coords.lon.toFixed(4)}`
                   : "—"}
@@ -260,13 +260,13 @@ export default function Page() {
             <div
               className={`p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-300/40 hover:shadow-blue-500/20`}
             >
-              <h3 className="mb-2 text-base font-semibold text-black dark:text-blue-100">
+              <h3 className="mb-2 text-base font-semibold text-[#0F2D46] dark:text-blue-100">
                 {t("rainAlert24h")}
               </h3>
-              <p className="text-3xl font-extrabold text-black dark:text-blue-300">
+              <p className="text-3xl font-extrabold text-[#0F2D46] dark:text-blue-300">
                 {data.sumNext24h.toFixed(1)} mm
               </p>
-              <p className="mt-2 text-sm text-blue-900/80 dark:text-blue-100/80">
+              <p className="mt-2 text-sm text-[#123458]/80 dark:text-blue-100/80">
                 {rainExpected ? t("rainExpected24h") : t("noRain24h")}
               </p>
             </div>
@@ -275,8 +275,8 @@ export default function Page() {
           {/* Annual Rainfall */}
           {rainfallData.loading && (
             <div className={`p-6 ${glass} text-center`}>
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-2 text-sm text-blue-700 dark:text-blue-300">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0F2D46]  mx-auto"></div>
+              <p className="mt-2 text-sm text-[#0F2D46] dark:text-blue-300">
                 {t("fetchingAnnualRainfall")}
               </p>
             </div>
@@ -294,19 +294,19 @@ export default function Page() {
             <section
               className={`p-6 ${glass} transition hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-300/40 hover:shadow-blue-500/20`}
             >
-              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-blue-900 dark:text-blue-100">
+              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-[#123458] dark:text-blue-100">
                 <Calendar className="h-5 w-5" /> {t("annualRainfallAnalysis")}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className={`p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20`}>
-                  <h3 className="flex items-center gap-2 text-base font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                  <h3 className="flex items-center gap-2 text-base font-semibold text-[#123458] dark:text-blue-100 mb-2">
                     <BarChart3 className="h-4 w-4" /> {t("annualTotal")}
                   </h3>
-                  <p className="text-3xl font-bold text-blue-700 dark:text-blue-300">
+                  <p className="text-3xl font-bold text-[#0F2D46] dark:text-blue-300">
                     {rainfallData.annualRainfall} mm
                   </p>
-                  <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">
+                  <p className="text-sm text-[#123458] dark:text-blue-400 mt-1">
                     {rainfallData.location}
                   </p>
                 </div>
@@ -326,23 +326,23 @@ export default function Page() {
 
               {rainfallData.monthlyData && (
                 <div>
-                  <h3 className="text-base font-semibold text-blue-900 dark:text-blue-100 mb-4">
+                  <h3 className="text-base font-semibold text-[#123458] dark:text-blue-100 mb-4">
                     {t("monthlyRainfallDistribution")}
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                     {rainfallData.monthlyData.map((month, index) => (
                       <div key={index} className="text-center">
-                        <div className="text-xs text-blue-600 dark:text-blue-400 mb-1">
+                        <div className="text-xs text-[#123458] dark:text-blue-400 mb-1">
                           {month.month}
                         </div>
-                        <div className="text-sm font-semibold text-blue-900 dark:text-blue-100">
+                        <div className="text-sm font-semibold text-[#123458] dark:text-blue-100">
                           {month.rainfall}mm
                         </div>
                         <div
                           className="w-full bg-blue-200 dark:bg-blue-800 rounded-full h-2 mt-1"
                           style={{
                             width: "100%",
-                            background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${
+                            background: `linear-gradient(to right, #123458 0%, #0F2D46 ${
                               (month.rainfall /
                                 Math.max(
                                   ...rainfallData!.monthlyData!.map(

@@ -827,3 +827,4 @@ function NumberInput({ value, onChange }: { value: number; onChange: (n: number)
     />
   );
 }
+

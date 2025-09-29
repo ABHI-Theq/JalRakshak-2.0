@@ -38,14 +38,14 @@ const UserButton = ({
             alt="User"
             width={40}
             height={40}
-            className="rounded-full ring-2 ring-blue-400/40 hover:ring-blue-500/60 transition"
+            className="rounded-full ring-2 ring-[#123458]/40 hover:ring-[#123458]/60 transition"
           />
           {showDetails && (
             <div className="hidden text-left sm:block">
-              <p className="font-semibold text-blue-900 dark:text-blue-100">
+              <p className="font-semibold text-[#123458] dark:text-blue-100">
                 {session?.user?.name}
               </p>
-              <p className="text-sm text-blue-700/70 dark:text-blue-300/70">
+              <p className="text-sm text-[#123458]/70 dark:text-blue-300/70">
                 {session?.user?.email}
               </p>
             </div>
@@ -58,19 +58,19 @@ const UserButton = ({
         align="end"
         className="w-56 rounded-xl border border-blue-200/60 bg-white/90 shadow-xl backdrop-blur-md dark:border-white/10 dark:bg-gray-900/90"
       >
-        <DropdownMenuLabel className="text-sm font-semibold text-blue-900 dark:text-blue-100">
+        <DropdownMenuLabel className="text-sm font-semibold text-[#123458] dark:text-blue-100">
           {t("myaccount")}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem className="flex items-center gap-2 text-blue-800 transition hover:bg-blue-100/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
+          <DropdownMenuItem className="flex items-center gap-2 text-[#123458] transition hover:bg-[#123458]/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
             <User className="h-4 w-4" /> {t("profile")}
           </DropdownMenuItem>
-          <DropdownMenuItem className="flex items-center gap-2 text-blue-800 transition hover:bg-blue-100/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
+          <DropdownMenuItem className="flex items-center gap-2 text-[#123458] transition hover:bg-[#123458]/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
             <Settings2 className="h-4 w-4" /> {t("settings")}
           </DropdownMenuItem>
-          <DropdownMenuItem className="flex items-center gap-2 text-blue-800 transition hover:bg-blue-100/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
+          <DropdownMenuItem className="flex items-center gap-2 text-[#123458] transition hover:bg-[#123458]/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
             <HelpCircle className="h-4 w-4" /> Help
           </DropdownMenuItem>
         </DropdownMenuGroup>

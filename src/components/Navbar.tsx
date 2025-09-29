@@ -32,16 +32,16 @@ export const Navbar = () => {
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-blue-100/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/50 dark:border-white/10 dark:bg-[#0b1220]/60 shadow-emerald-200">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b  border-blue-100/60  backdrop-blur  supports-[backdrop-filter]:bg-[#ffecca] dark:border-white/10 dark:bg-[#0b1220]/60 ">
+      <nav className="  flex h-18 w-full items-center justify-between sm:px-6 lg:px-8">
 
         {/* Logo */}
-        <div className="flex space-x-10">
+        <div className="flex space-x-10"> 
           <div className="relative">
             <span className="absolute inset-0    opacity-70" />
             <Link
               href="/"
-              className="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-300"
+              className="flex items-center gap-2 text-2xl font-bold tracking-tight text-[#123458]  dark:text-blue-300"
             >
               <img src="/logo.svg" alt="JalRakshak" className="h-7 w-7" />
               {t("appName")}
@@ -64,14 +64,14 @@ export const Navbar = () => {
           <NavItem href="/faqs" pathname={pathname}>{t("navFaqs")}</NavItem>
           <NavItem href="/about" pathname={pathname}>{t("navAbout")}</NavItem>
 
-          <div className="mx-2 h-6 w-px bg-blue-200 dark:bg-white/10" />
+          <div className="mx-2 h-6 w-px bg-[#123458]/80 dark:bg-white/10" />
 
           {/* Theme toggle */}
           <Button
             variant="ghost"
             size="sm"
             onClick={toggleTheme}
-            className="text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
+            className="text-[#123458]/80 hover:text-[#123458] hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
           >
             {mounted && isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
@@ -81,7 +81,7 @@ export const Navbar = () => {
             variant="ghost"
             size="sm"
             onClick={toggleLanguage}
-            className="text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
+            className="text-[#123458]/80 hover:text-[#123458] hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
           >
             {i18n.language === "en" ? t("toggleToHindi") : t("toggleToEnglish")}
           </Button>
@@ -103,6 +103,7 @@ export const Navbar = () => {
           }          
         </div>
       </nav>
+      <hr className="border-t-.5 border-[#123458] shadow-md backdrop-blur"/>
     </header>
   );
 };
@@ -122,9 +123,9 @@ const NavItem = ({
     <Link
       href={href}
       className={cn(
-        "rounded-md px-3 py-2 text-sm font-medium text-blue-800/80 transition hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-200/80 dark:hover:text-blue-100 dark:hover:bg-white/5",
+        " font-bold rounded-md px-3 py-2 text-md  text-[#123458] transition  hover:bg-neutral-200 dark:text-blue-200/80 dark:hover:text-blue-100 dark:hover:bg-white/5",
         isActive &&
-        "text-blue-900 bg-blue-100/70 shadow-sm dark:text-blue-100 dark:bg-white/10"
+        " text-[#0b243e] underline dark:text-blue-100 dark:bg-white/10"
       )}
     >
       {children}

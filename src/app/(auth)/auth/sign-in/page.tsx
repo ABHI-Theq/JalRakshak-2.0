@@ -4,7 +4,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 export default function Login() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-blue-50 dark:bg-transparent">
+    <div className="relative flex min-h-screen items-center justify-center bg-[#fff6ee] dark:bg-transparent">
       {/* Decorative Blur Orbs */}
       {/* <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-blue-300/25 blur-3xl dark:bg-blue-600/20" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-300/25 blur-3xl dark:bg-cyan-600/20" /> */}
