@@ -123,9 +123,9 @@ const NavItem = ({
     <Link
       href={href}
       className={cn(
-        " font-bold rounded-md px-3 py-2 text-md  text-[#123458] transition  hover:bg-neutral-200 dark:text-blue-200/80 dark:hover:text-blue-100 dark:hover:bg-white/5",
+        " font-bold rounded-md px-3 py-2 text-md  text-[#123458] transition  hover:text-[#0F2D46] hover:bg-[#fff6ee] dark:text-blue-200/80 dark:hover:text-blue-100 dark:hover:bg-white/5",
         isActive &&
-        " text-[#0b243e] underline dark:text-blue-100 dark:bg-white/10"
+        " text-[#0C2235] bg-[#FFDFA3]  dark:text-blue-100 dark:bg-white/10"
       )}
     >
       {children}
