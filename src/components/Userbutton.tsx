@@ -13,8 +13,9 @@ import {
 import Image from "next/image";
 import type { Session } from "next-auth";
 import { HelpCircle, LogOut, Settings2, User } from "lucide-react";
-import { useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 
 const UserButton = ({
   session,
@@ -23,6 +24,8 @@ const UserButton = ({
   session: Session;
   showDetails?: boolean;
 }) => {
+
+  const {t,i18n}=useTranslation()
 
   const router=useRouter()
   return (
@@ -56,16 +59,16 @@ const UserButton = ({
         className="w-56 rounded-xl border border-blue-200/60 bg-white/90 shadow-xl backdrop-blur-md dark:border-white/10 dark:bg-gray-900/90"
       >
         <DropdownMenuLabel className="text-sm font-semibold text-blue-900 dark:text-blue-100">
-          My Account
+          {t("myaccount")}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
           <DropdownMenuItem className="flex items-center gap-2 text-blue-800 transition hover:bg-blue-100/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
-            <User className="h-4 w-4" /> Profile
+            <User className="h-4 w-4" /> {t("profile")}
           </DropdownMenuItem>
           <DropdownMenuItem className="flex items-center gap-2 text-blue-800 transition hover:bg-blue-100/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
-            <Settings2 className="h-4 w-4" /> Settings
+            <Settings2 className="h-4 w-4" /> {t("settings")}
           </DropdownMenuItem>
           <DropdownMenuItem className="flex items-center gap-2 text-blue-800 transition hover:bg-blue-100/70 dark:text-blue-200 dark:hover:bg-blue-800/30">
             <HelpCircle className="h-4 w-4" /> Help
@@ -80,7 +83,7 @@ const UserButton = ({
           }}
           className="flex items-center gap-2 text-red-600 transition hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/20"
         >
-          <LogOut className="h-4 w-4" /> Log out
+          <LogOut className="h-4 w-4" /> {t("logout")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

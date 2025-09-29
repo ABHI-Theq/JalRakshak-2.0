@@ -8,6 +8,7 @@
   "locationInsights": "Location insights",
   "communityImpact": "Community impact",
   "governmentPolicies": "Government Policies",
+  "dashboard":"Dashboard",
   "getStarted": "Get Started",
   "learnMore": "Learn more",
   "whyJalRakshak": "Why JalRakshak",
@@ -83,5 +84,10 @@
   "signingIn": "Signing in...",
   "signIn": "Sign In",
   "demoCredentials": "Demo credentials:",
-  "allRightsReserved": "All rights reserved."
+  "allRightsReserved": "All rights reserved.",
+  "myaccount":"My Account",
+  "profile":"Profile",
+  "settings":"settings",
+  "logout":"Log out",
+  "help":"Help"
 }

@@ -8,6 +8,7 @@
   "locationInsights": "स्थान अंतर्दृष्टि",
   "communityImpact": "समुदाय प्रभाव",
   "governmentPolicies": "सरकारी नीतियाँ",
+  "dashboard":"नियंत्रण पटल",
   "getStarted": "शुरू करें",
   "learnMore": "और जानें",
   "whyJalRakshak": "क्यों जलरक्षक",
@@ -83,5 +84,10 @@
   "signingIn": "साइन इन किया जा रहा है...",
   "signIn": "साइन इन करें",
   "demoCredentials": "डेमो क्रेडेंशियल्स:",
-  "allRightsReserved": "सर्वाधिकार सुरक्षित।"
+  "allRightsReserved": "सर्वाधिकार सुरक्षित।",
+  "myaccount": "मेरा खाता",
+  "profile": "प्रोफ़ाइल",
+  "settings": "सेटिंग्स",
+  "logout": "लॉग आउट",
+  "help": "सहायता"
 }
