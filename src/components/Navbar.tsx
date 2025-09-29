@@ -32,63 +32,75 @@ export const Navbar = () => {
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200/30 shadow-sm">
-      <nav className="mx-auto flex h-15 max-w-7xl items-center justify-between px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-blue-100/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/50 dark:border-white/10 dark:bg-[#0b1220]/60 shadow-emerald-200">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
         {/* Logo */}
-        <div className="flex items-center">
-          <Link
-            href="/"
-            className="flex items-center gap-3 text-3xl font-serif font-bold text-gray-800 hover:text-gray-900 transition-colors"
-          >
-            <img src="/logo.svg" alt="JalRakshak" className="h-8 w-8" />
-            {t("appName")}
-          </Link>
+        <div className="flex space-x-10">
+          <div className="relative">
+            <span className="absolute inset-0    opacity-70" />
+            <Link
+              href="/"
+              className="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-300"
+            >
+              <img src="/logo.svg" alt="JalRakshak" className="h-7 w-7" />
+              {t("appName")}
+            </Link>
+          </div>
         </div>
 
         {/* Nav items */}
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center gap-1 sm:gap-2">
           <NavItem href="/" pathname={pathname}>{t("navHome")}</NavItem>
-          {session?.user && (
-            <NavItem href="/dashboard" pathname={pathname}>{t("dashboard")}</NavItem>
-          )}
-          <NavItem href="/weather" pathname={pathname}>{t("navWeather")}</NavItem>
+          {
+            session?.user && (
+              <>
+                <NavItem href="/analysis" pathname={pathname}>{t("navAnalysis")}</NavItem>
+                <NavItem href="/weather" pathname={pathname}>{t("navWeather")}</NavItem>
+                <NavItem href="/structure" pathname={pathname}>{t("navStructure")}</NavItem>
+              </>
+            )
+          }
           <NavItem href="/faqs" pathname={pathname}>{t("navFaqs")}</NavItem>
-          
-          <div className="h-6 w-px bg-gray-300" />
-          
-          {/* Government Policies Button */}
+          <NavItem href="/about" pathname={pathname}>{t("navAbout")}</NavItem>
+
+          <div className="mx-2 h-6 w-px bg-blue-200 dark:bg-white/10" />
+
+          {/* Theme toggle */}
           <Button
-            variant="outline"
+            variant="ghost"
             size="sm"
-            className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400"
+            onClick={toggleTheme}
+            className="text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
           >
-            {t("governmentPolicies")}
+            {mounted && isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
-          
+
           {/* Language toggle */}
           <Button
             variant="ghost"
             size="sm"
             onClick={toggleLanguage}
-            className="text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
+            className="text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
           >
-            {i18n.language === "en" ? "हिंदी" : "English"}
+            {i18n.language === "en" ? t("toggleToHindi") : t("toggleToEnglish")}
           </Button>
 
-          {/* Login/User */}
-          {session?.user ? (
-            <UserButton session={session}/>
-          ) : (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleLogin}
-              className="text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
-            >
-              <LogIn className="h-4 w-4 mr-2" />
-              Login
-            </Button>
-          )}
+          {
+            session?.user?(
+              <UserButton session={session}/>
+            ):(
+                        <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleLogin}
+            className="text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-300 dark:hover:text-blue-100 dark:hover:bg-white/5"
+          >
+            <LogIn className="h-4 w-4 mr-1" />
+            Login
+          </Button>
+            )
+          }          
         </div>
       </nav>
     </header>
@@ -110,8 +122,9 @@ const NavItem = ({
     <Link
       href={href}
       className={cn(
-        "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200",
-        isActive && "text-gray-900 font-semibold"
+        "rounded-md px-3 py-2 text-sm font-medium text-blue-800/80 transition hover:text-blue-900 hover:bg-blue-100/50 dark:text-blue-200/80 dark:hover:text-blue-100 dark:hover:bg-white/5",
+        isActive &&
+        "text-blue-900 bg-blue-100/70 shadow-sm dark:text-blue-100 dark:bg-white/10"
       )}
     >
       {children}
