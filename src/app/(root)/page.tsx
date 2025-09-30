@@ -13,12 +13,15 @@ import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "next-themes";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function Home() {
   const getStartedRef = useRef<HTMLDivElement>(null);
   const learnMoreRef = useRef<HTMLDivElement>(null);
   const { t, i18n } = useTranslation();
   const { theme, resolvedTheme } = useTheme();
+  const {data:session,status}=useSession()
 
   // resolvedTheme ensures system preference is considered
   const isDark = resolvedTheme === "dark";
@@ -92,10 +95,14 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
              
               <Button
-                onClick={() => scrollToSection(getStartedRef)}
+                // onClick={() => scrollToSection(getStartedRef)}
                 className="group bg-[#0F2D46] text-[#fff6ee] hover:bg-[#123458] shadow-lg shadow-gray-300 dark:shadow-none dark:border-none dark:text-white dark:bg-blue-700 dark:hover:bg-blue-800"
               >
-                {t("getStarted")}
+                {
+                  session?
+                  (<Link href={"/analysis"}>{t("letsanalyze")}</Link>)
+                  :(<Link href={"/auth/sign-in"} >{t("getStarted")}</Link>)
+                }
                 <ArrowRight className="ml-2 inline transition-transform group-hover:translate-x-0.5" />
               </Button>
             </div>
