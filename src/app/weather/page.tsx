@@ -13,6 +13,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { fetchAnnualRainfall } from "@/features";
 
 const glass =
   "rounded-2xl  bg-[#ffffff] shadow-xl  backdrop-blur-md dark:border-white/10 dark:bg-white/10 dark:ring-white/10";
@@ -53,66 +54,7 @@ export default function Page() {
     [data?.sumNext24h]
   );
 
-  async function fetchAnnualRainfall(
-    lat: number,
-    lon: number,
-    locationName: string
-  ) {
-    try {
-      const currentDate = new Date();
-      const startDate = new Date(currentDate.getFullYear() - 1, 0, 1);
-      const endDate = new Date(currentDate.getFullYear() - 1, 11, 31);
 
-      const rainfallUrl = `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate
-        .toISOString()
-        .split("T")[0]}&end_date=${endDate
-        .toISOString()
-        .split("T")[0]}&daily=precipitation_sum&timezone=auto`;
-
-      const rainfallRes = await fetch(rainfallUrl);
-      const rainfallJson = await rainfallRes.json();
-
-      const dailyPrecipitation = rainfallJson?.daily?.precipitation_sum || [];
-      const annualTotal = dailyPrecipitation.reduce(
-        (sum: number, val: number) => sum + (val || 0),
-        0
-      );
-
-      const monthlyData = [
-        { month: "Jan", rainfall: 0 },
-        { month: "Feb", rainfall: 0 },
-        { month: "Mar", rainfall: 0 },
-        { month: "Apr", rainfall: 0 },
-        { month: "May", rainfall: 0 },
-        { month: "Jun", rainfall: 0 },
-        { month: "Jul", rainfall: 0 },
-        { month: "Aug", rainfall: 0 },
-        { month: "Sep", rainfall: 0 },
-        { month: "Oct", rainfall: 0 },
-        { month: "Nov", rainfall: 0 },
-        { month: "Dec", rainfall: 0 },
-      ];
-
-      const monthlyDistribution = [2, 3, 5, 8, 15, 25, 30, 25, 20, 8, 3, 2];
-      monthlyData.forEach((month, index) => {
-        month.rainfall = Math.round(
-          (annualTotal * monthlyDistribution[index]) / 100
-        );
-      });
-
-      setRainfallData({
-        location: locationName,
-        annualRainfall: Math.round(annualTotal),
-        monthlyData,
-        loading: false,
-      });
-    } catch (err: any) {
-      setRainfallData({
-        error: err?.message || "Failed to fetch rainfall data",
-        loading: false,
-      });
-    }
-  }
 
   async function geocodeAndFetch() {
     try {
@@ -150,7 +92,9 @@ export default function Page() {
       };
       setData({ current, sumNext24h, locationName: json[0].display_name });
 
-      await fetchAnnualRainfall(lat, lon, json[0].display_name || "Unknown");
+      const reainfallResult=await fetchAnnualRainfall(lat, lon, json[0].display_name || "Unknown");
+
+      setRainfallData(rainfallData)
     } catch (e: any) {
       setError(e?.message || "Failed to load weather");
     } finally {
@@ -159,7 +103,7 @@ export default function Page() {
   }
 
   return (
-    <main className="relative mx-auto    px-4 py-10 sm:px-6 lg:px-8 bg-[#fff6ee]">
+    <main className="relative mx-auto    px-4 py-10 sm:px-6 lg:px-8 ">
       <header className="mb-6 flex items-center justify-between text-[#0F2D46] dark:text-blue-100">
         <div className="flex items-center gap-2">
           <CloudRain className="h-6 w-6 text-[#123458] dark:text-blue-300" />

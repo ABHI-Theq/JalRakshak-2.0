@@ -44,7 +44,7 @@ export const Navbar = () => {
               href="/"
               className="flex items-center gap-2 text-2xl font-bold tracking-tight text-[#123458]  dark:text-blue-300"
             >
-              <Image src={"/logo.svg"} alt="JalRakshak" className="h-7 w-7" />
+              <Image src={"/logo.svg"} alt="JalRakshak" className="h-7 w-7" width={7} height={7} />
               {t("appName")}
             </Link>
           </div>

@@ -46,6 +46,7 @@
     "i18next": "^25.5.2",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.544.0",
+    "motion": "^12.23.22",
     "next": "15.5.4",
     "next-auth": "5.0.0-beta.29",
     "next-i18next": "^15.4.2",
