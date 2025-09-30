@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { AnnualRainfallData, fetchAnnualRainfall } from "@/features";
 import { motion, AnimatePresence } from "motion/react"
 import { toast } from "sonner";
+import Link from "next/link";
 
 type Inputs = {
   name: string;
@@ -757,7 +758,7 @@ export default function Page() {
                       title="Storage Optimization"
                       color="green"
                     >
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="flex items-center justify-center  md:grid md:grid-cols-2 gap-4">
                         <div>
                           <h4 className="font-semibold text-gray-700 mb-2">Recommended Structure</h4>
                           <p className="text-sm text-gray-600 mb-2">{storageOptimization.structureType}</p>
@@ -768,11 +769,16 @@ export default function Page() {
                         </div>
                         <div>
                           <h4 className="font-semibold text-gray-700 mb-2">Storage Analysis</h4>
-                          <div className="space-y-2">
+                          <div className=" flex items-center justify-center gap-5 ">
                             <Metric value={`${storageOptimization.recommendedVolume} m³`} label="Volume" color="blue" small />
                             <Metric value={`${storageOptimization.storageDays} days`} label="Storage Days" color="green" small />
                             <Metric value={`${(storageOptimization.utilizationRate * 100).toFixed(1)}%`} label="Utilization" color="purple" small />
                           </div>
+                        </div>
+                        <div className="w-full  mx-auto">
+                        <Button className="bg-[#0f2d46] text-[#fff6ee] hover:bg-[#123458]">
+                          <Link href={`/structure?structure=${encodeURIComponent(storageOptimization.structureType)}&dimensions=${encodeURIComponent(storageOptimization.dimensions)}&volume=${encodeURIComponent(storageOptimization.recommendedVolume)}&complexity=${encodeURIComponent(storageOptimization.complexity)}`}>Visit the recommeded structure details</Link>
+                        </Button>
                         </div>
                       </div>
                     </AnalysisCard>

@@ -39,6 +39,17 @@ export default function Home() {
 
   return (
     <main className="relative overflow-hidden bg-[#fff6ee] dark:bg-black">
+  <Button
+    variant="outline"
+    className="fixed z-50 top-25 left-5 rounded-full cursor-pointer border-[#123458] text-[#123458] hover:bg-[#123458] hover:text-white dark:border-blue-300 dark:text-blue-300 dark:hover:bg-blue-300 dark:hover:text-[#123458] transition-all duration-300"
+    asChild
+  >
+    <a href="https://www.jalshakti-dowr.gov.in/" target="_blank" rel="noopener noreferrer">
+      {t("governmentPolicies")}
+      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+    </a>
+  </Button>
+
       {/* HERO SECTION */}
       <section className="relative isolate min-h-screen">
         {isDark && (
@@ -59,7 +70,7 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <Droplets className="h-9 w-9 text-blue-500/80 dark:text-blue-300/80" />
                 <span>{t("appName")}</span>
-              </div>
+               </div>
               <span className="mb-3 text-2xl sm:text-3xl md:text-6xl font-bold">
                 {t("subtitleApp")}
               </span>
@@ -79,12 +90,7 @@ export default function Home() {
               <span>{t("communityImpact")}</span>
             </div>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              {/* <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
-                <a href="https://www.jalshakti-dowr.gov.in/" target="_blank">
-                  {t("governmentPolicies")}
-                  <ArrowRight className="ml-2 inline transition-transform group-hover:translate-x-0.5" />
-                </a>
-              </Button> */}
+             
               <Button
                 onClick={() => scrollToSection(getStartedRef)}
                 className="group bg-[#0F2D46] text-[#fff6ee] hover:bg-[#123458] shadow-lg shadow-gray-300 dark:shadow-none dark:border-none dark:text-white dark:bg-blue-700 dark:hover:bg-blue-800"
