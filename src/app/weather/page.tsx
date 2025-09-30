@@ -92,9 +92,9 @@ export default function Page() {
       };
       setData({ current, sumNext24h, locationName: json[0].display_name });
 
-      const reainfallResult=await fetchAnnualRainfall(lat, lon, json[0].display_name || "Unknown");
+      const rainfallResult=await fetchAnnualRainfall(lat, lon, json[0].display_name || "Unknown");
 
-      setRainfallData(rainfallData)
+      setRainfallData(rainfallResult)
     } catch (e: any) {
       setError(e?.message || "Failed to load weather");
     } finally {
