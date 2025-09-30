@@ -22,8 +22,8 @@ context=" ".join(doc.page_content for doc in docs)
 #text splitting using recursivetext splitter
 
 splitter=RecursiveCharacterTextSplitter(
-    chunk_size=120,
-    chunk_overlap=20
+    chunk_size=160,
+    chunk_overlap=30
 )
 
 chunks=splitter.create_documents([context])
