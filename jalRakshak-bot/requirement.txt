@@ -1,0 +1,16 @@
+# Core LangChain (required for RAG system)
+langchain
+langchain-core
+langchain-community
+
+# Google Gemini (required for LLM and embeddings)
+langchain-google-genai
+google-generativeai
+
+# Vector Store (required for FAISS database)
+faiss-cpu
+
+# FastAPI (required for API server) - includes CORS middleware
+fastapi
+uvicorn
+pydantic

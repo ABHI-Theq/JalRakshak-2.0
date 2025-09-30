@@ -1,5 +1,5 @@
 import os
-os.environ["GOOGLE_API_KEY"] = "your_gemini_api_key"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyAW2I_lpq3tNFBV0QvRpTWjiHxqHrlDaa8"
 
 import faiss
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
