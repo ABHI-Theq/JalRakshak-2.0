@@ -1,5 +1,5 @@
 import os
-os.environ["GOOGLE_API_KEY"] = "AIzaSyAW2I_lpq3tNFBV0QvRpTWjiHxqHrlDaa8"
+os.environ["GOOGLE_API_KEY"] = "Your_gemini_api_key"
 
 import faiss
 from langchain.text_splitter import RecursiveCharacterTextSplitter
